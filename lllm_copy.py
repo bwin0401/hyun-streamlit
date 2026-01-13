@@ -30,8 +30,9 @@ def get_session_history(session_id: str) -> BaseChatMessageHistory:
 def get_retriever():
     # 설정
     save_dir = r"C:\Users\7255693\Desktop\streamlit\multi_base_faiss_index"
-    model_path = r"C:\Users\7255693\Desktop\streamlit\multi_base"
-
+    # model_path = r"C:\Users\7255693\Desktop\streamlit\multi_base"
+    model_path = 'intfloat/multilingual-e5-base'
+    
     # 임베딩 모델 (공통)
     embeddings = HuggingFaceEmbeddings(
         model_name=model_path,
@@ -205,5 +206,6 @@ def get_ai_response(user_message):
         "configurable": {"session_id": "abc123"}
     },
 )
+
 
     return ai_response
