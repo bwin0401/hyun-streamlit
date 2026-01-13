@@ -43,13 +43,13 @@ def get_retriever():
         model_name=model,
         encode_kwargs={"normalize_embeddings": True}
     )
-    
+    print("완료1")
     # 인덱스가 이미 존재하는지 확인
     if os.path.exists(save_dir):
         # ✅ 기존 인덱스 로드
         print("기존 FAISS 인덱스를 로드합니다...")
         faiss_loaded = FAISS.load_local(save_dir, embeddings, allow_dangerous_deserialization=True)
-
+        print("완료2")
     else:
         # ✅ 최초 실행: 문서 로드 + 인덱스 생성 + 저장
         print("FAISS 인덱스를 새로 생성합니다...")
@@ -59,6 +59,7 @@ def get_retriever():
         document_list = loader.load_and_split(text_splitter=text_splitter)
 
         faiss_db = FAISS.from_documents(documents=document_list, embedding=embeddings)
+        print("완료3")
         faiss_db.save_local(save_dir)
         faiss_loaded = faiss_db
 
@@ -218,6 +219,7 @@ def get_ai_response(user_message):
 
 
     return ai_response
+
 
 
 
