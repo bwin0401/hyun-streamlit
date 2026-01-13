@@ -98,14 +98,17 @@ def get_history_retriever():
 def get_llm():
     os.environ["AZURE_OPENAI_API_KEY"] = "8c3d7622125953975b740c0d3aee4f0401df32da42a985de1cf2650cbcbc7f0a"
     os.environ["AZURE_OPENAI_ENDPOINT"] = "https://h-chat-api.autoever.com/v2/api"
-    
+
+    st.secrets["AZURE_OPENAI_API_KEY"] = "8c3d7622125953975b740c0d3aee4f0401df32da42a985de1cf2650cbcbc7f0a"
+    st.secrets["AZURE_OPENAI_ENDPOINT"] = "https://h-chat-api.autoever.com/v2/api"
+
     AZURE_OPENAI_API_VERSION = "2024-10-21"
     AZURE_OPENAI_DEPLOYMENT = "gpt-4o"
     
         # LLM 초기화
     llm = AzureChatOpenAI(
-        azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
-        api_key = os.environ["AZURE_OPENAI_API_KEY"],
+        azure_endpoint=st.secrets["AZURE_OPENAI_ENDPOINT"],
+        api_key = st.secrets["AZURE_OPENAI_API_KEY"],
         api_version=AZURE_OPENAI_API_VERSION,
         model=AZURE_OPENAI_DEPLOYMENT,
         temperature=0.7,
@@ -215,6 +218,7 @@ def get_ai_response(user_message):
 
 
     return ai_response
+
 
 
 
