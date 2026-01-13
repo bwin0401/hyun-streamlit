@@ -35,7 +35,7 @@ def get_retriever():
     # save_dir = r"C:\Users\7255693\Desktop\streamlit\multi_base_faiss_index"
     save_dir = './save/multi_base_faiss_index'
     # model_path = r"C:\Users\7255693\Desktop\streamlit\multi_base"
-    model = SentenceTransformer("intfloat/multilingual-e5-base")
+    model = "intfloat/multilingual-e5-base"
     
     # 임베딩 모델 (공통)
     embeddings = HuggingFaceEmbeddings(
@@ -214,6 +214,7 @@ def get_ai_response(user_message):
 
 
     return ai_response
+
 
 
 
