@@ -16,6 +16,9 @@ from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
+from sentence_transformers import SentenceTransformer
+
+
 from config import answer_examples
 
 store = {}
@@ -32,7 +35,7 @@ def get_retriever():
     # save_dir = r"C:\Users\7255693\Desktop\streamlit\multi_base_faiss_index"
     save_dir = './save/multi_base_faiss_index'
     # model_path = r"C:\Users\7255693\Desktop\streamlit\multi_base"
-    model_path = 'intfloat/multilingual-e5-base'
+    model = SentenceTransformer("intfloat/multilingual-e5-base")
     
     # 임베딩 모델 (공통)
     embeddings = HuggingFaceEmbeddings(
@@ -211,6 +214,7 @@ def get_ai_response(user_message):
 
 
     return ai_response
+
 
 
 
