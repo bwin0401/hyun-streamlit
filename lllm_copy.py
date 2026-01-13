@@ -66,7 +66,7 @@ def get_retriever():
     # ✅ 검색기 준비
     retriever = faiss_loaded.as_retriever(search_kwargs={"k": 3})
     # retriever = faiss_loaded.as_retriever(search_kwargs={"k": 5})  
-
+    print("완료6")
     return retriever
     
 def get_history_retriever():
@@ -219,6 +219,7 @@ def get_ai_response(user_message):
 
 
     return ai_response
+
 
 
 
