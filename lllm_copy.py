@@ -57,7 +57,7 @@ def get_retriever():
         # loader = Docx2txtLoader(r"C:\Users\7255693\Desktop\streamlit\tax_with_markdown.docx")
         loader = Docx2txtLoader('./docs/tax_with_markdown.docx')
         document_list = loader.load_and_split(text_splitter=text_splitter)
-
+        print("완료4")
         faiss_db = FAISS.from_documents(documents=document_list, embedding=embeddings)
         print("완료3")
         faiss_db.save_local(save_dir)
@@ -219,6 +219,7 @@ def get_ai_response(user_message):
 
 
     return ai_response
+
 
 
 
