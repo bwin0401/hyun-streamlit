@@ -212,3 +212,4 @@ def get_ai_response(user_message):
 
     return ai_response
 
+
