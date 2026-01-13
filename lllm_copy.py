@@ -29,7 +29,8 @@ def get_session_history(session_id: str) -> BaseChatMessageHistory:
 
 def get_retriever():
     # 설정
-    save_dir = r"C:\Users\7255693\Desktop\streamlit\multi_base_faiss_index"
+    # save_dir = r"C:\Users\7255693\Desktop\streamlit\multi_base_faiss_index"
+    save_dir = './save/multi_base_faiss_index'
     # model_path = r"C:\Users\7255693\Desktop\streamlit\multi_base"
     model_path = 'intfloat/multilingual-e5-base'
     
@@ -49,7 +50,8 @@ def get_retriever():
         # ✅ 최초 실행: 문서 로드 + 인덱스 생성 + 저장
         print("FAISS 인덱스를 새로 생성합니다...")
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=200)
-        loader = Docx2txtLoader(r"C:\Users\7255693\Desktop\streamlit\tax_with_markdown.docx")
+        # loader = Docx2txtLoader(r"C:\Users\7255693\Desktop\streamlit\tax_with_markdown.docx")
+        loader = Docx2txtLoader('/docs/tax_with_markdown.docx")
         document_list = loader.load_and_split(text_splitter=text_splitter)
 
         faiss_db = FAISS.from_documents(documents=document_list, embedding=embeddings)
@@ -209,3 +211,4 @@ def get_ai_response(user_message):
 
 
     return ai_response
+
