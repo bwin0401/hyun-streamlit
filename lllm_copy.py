@@ -39,7 +39,7 @@ def get_retriever():
     
     # 임베딩 모델 (공통)
     embeddings = HuggingFaceEmbeddings(
-        model_name=model_path,
+        model_name=model,
         encode_kwargs={"normalize_embeddings": True}
     )
     
@@ -214,6 +214,7 @@ def get_ai_response(user_message):
 
 
     return ai_response
+
 
 
 
