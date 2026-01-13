@@ -2,10 +2,6 @@
 # --- Streamlit (웹앱) ---
 streamlit==1.39.0
 
-# --- LangChain 계열 (모듈 분리 반영) ---
-langchain==0.3.2
-langchain-community==0.3.1
-langchain-text-splitters==0.3.1
 
 # --- 문서 로더/이미지 처리 ---
 docx2txt==0.8
@@ -35,3 +31,17 @@ rich==13.7.1
 pygments==2.19.1
 markdown-it-py==3.0.0
 mdurl==0.1.2
+
+langchain==1.2.3
+langchain-classic==1.0.1
+langchain-community==0.4.1
+langchain-core==1.2.7
+langchain-huggingface==1.2.0
+langchain-openai==1.1.7
+langchain-text-splitters==1.1.0
+langchainhub==0.1.21
+langgraph==1.0.5
+langgraph-checkpoint==3.0.1
+langgraph-prebuilt==1.0.5
+langgraph-sdk==0.3.0
+langsmith==0.4.59
